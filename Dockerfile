@@ -5,5 +5,9 @@ WORKDIR /work
 
 RUN ./install.sh
 
+EXPOSE 9996
+EXPOSE 9997
 EXPOSE 9998
+EXPOSE 9999
+
 CMD ./run.sh
