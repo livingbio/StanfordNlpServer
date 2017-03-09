@@ -1,6 +1,7 @@
 #!/bin/sh
 
 wget http://nlp.stanford.edu/software/stanford-segmenter-2015-12-09.zip
+unzip http://nlp.stanford.edu/software/stanford-segmenter-2015-12-09.zip
 mv stanford-segmenter-2015-12-09 segmenter
 
 wget http://nlp.stanford.edu/software/stanford-postagger-full-2015-12-09.zip
