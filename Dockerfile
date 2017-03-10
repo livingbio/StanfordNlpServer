@@ -9,3 +9,4 @@ ADD . /opt/tomcat/webapps/nlp
 
 workdir /opt/tomcat/webapps/nlp
 run make build
+cmd make runserver
