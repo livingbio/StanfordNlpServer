@@ -10,9 +10,9 @@ def to_half_word(text):
                     if ord(ch) >= 0xff01 and ord(ch) <= 0xff5e else ch
                     for ch in text])
 
-segClient = Client('http://localhost:8888/seg?wsdl')
-posClient = Client('http://localhost:8888/pos?wsdl')
-parClient = Client('http://localhost:8888/parser?wsdl')
+segClient = Client('http://localhost:8888/nlp/seg?wsdl')
+posClient = Client('http://localhost:8888/nlp/pos?wsdl')
+parClient = Client('http://localhost:8888/nlp/parser?wsdl')
 
 text = u'''希拉里关注的是美国人的薪资。
 她想要把最低时薪从7.25美元上调至至少12美元，但这只会影响到一小部分工人。
