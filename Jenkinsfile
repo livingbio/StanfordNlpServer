@@ -3,10 +3,10 @@ node("small"){
         checkout scm
     }
     stage('build'){
-        sh 'docker build . -t ${ECR_DOMAIN}/stanford:postag'
+        sh 'docker build . -t ${ECR_DOMAIN}/stanford'
 
 		docker.withRegistry("https://${ECR_DOMAIN}", "${ECR_KEY}") {
-            sh 'docker push ${ECR_DOMAIN}/stanford:postag'
+            sh 'docker push ${ECR_DOMAIN}/stanford'
 		}
     }
 }
