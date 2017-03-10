@@ -6,7 +6,7 @@
 libpath=WEB-INF/lib
 classes=WEB-INF/classes
 SHELL:=/bin/bash
-img=test
+img=gliacloud/stanfordnlpserver
 path=/opt/tomcat/webapps/nlp
 
 
