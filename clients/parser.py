@@ -1,19 +1,32 @@
 # -*- coding: utf-8 -*-
 from suds.client import Client
 import re
-from zhconvert import ZHConvert
 
+def to_half_word(text):
+    '''Stanford POS tagger會自動將英文及數字轉換成全形字元
+    ，這個函式用來將全形字元轉換成半形'''
+    return ''.join([chr(ord(ch) - 0xff00 + 0x20)
+                    if ord(ch) >= 0xff01 and ord(ch) <= 0xff5e else ch
+                    for ch in text])
+
+segClient = Client('http://localhost:9999/seg?wsdl')
+posClient = Client('http://localhost:9998/pos?wsdl')
 parClient = Client('http://localhost:9997/parser?wsdl')
-zh = ZHConvert()
 
-sent1 = u'希拉蕊關注的是美國人的薪資。'
-sent2 = u'她想要把最低時薪從7.25美元上調至至少12美元，但這只會影響到一小部分工人。'
-sent3 = u'經濟學家指出，為了能真正讓工資上漲，美國經濟的增長幅度要比現任總統奧巴馬執政期間增長的更大。'
+text = u'''希拉里关注的是美国人的薪资。
+她想要把最低时薪从7.25美元上调至至少12美元，但这只会影响到一小部分工人。
+经济学家指出，为了能真正让工资上涨，
+美国经济的增长幅度要比现任总统奥巴马执政期间增长的更大。'''
+
+seg_text = segClient.service.getSegmentResult(text)
+seg_text = re.sub('(。|？|；|！|\!|\?|;)', '\\1$$$', seg_text)
+pos_text = posClient.service.getPostagResult(seg_text)
+pos_text = [to_half_word(s) for s in pos_text.split('$$$')]
 
 words = []
 tags = []
-for sent in [sent1, sent2, sent3]:
-    tagtext = zh.tw_postag(sent)
+for sent in pos_text:
+    tagtext = [w.split('#') for w in sent.split() if w]
     words.append(' '.join([w for w, _ in tagtext]))
     tags.append(' '.join([t for _, t in tagtext]))
 
