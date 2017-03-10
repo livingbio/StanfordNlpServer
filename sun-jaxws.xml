@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints
+  xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime"
+  version="2.0">
+  <endpoint
+      name="Pos"
+      implementation="service.impl.PosServiceImpl"
+      url-pattern="/pos"/>
+
+  <endpoint
+      name="Seg"
+      implementation="service.impl.SegServiceImpl"
+      url-pattern="/seg"/>
+
+  <endpoint
+      name="Parser"
+      implementation="service.impl.ParserServiceImpl"
+      url-pattern="/parser"/>
+
+  <endpoint
+      name="Ner"
+      implementation="service.impl.NerServiceImpl"
+      url-pattern="/ner"/>
+</endpoints>
