@@ -21,7 +21,7 @@ public class PosServiceImpl implements PosService {
 
 	public void init() throws Exception {
 		System.setOut(new PrintStream(System.out, true, "utf-8"));
-		tagger = new MaxentTagger("models/chinese-distsim.tagger");
+		tagger = new MaxentTagger("postagger/models/chinese-distsim.tagger");
 	}
 
 	@Override
