@@ -3,7 +3,7 @@ from suds.client import Client
 import re
 from zhconvert import ZHConvert
 
-parClient = Client('http://localhost:9997/parser?wsdl')
+parClient = Client('http://localhost:8888/parser?wsdl')
 zh = ZHConvert()
 
 sent1 = u'希拉蕊關注的是美國人的薪資。'

@@ -6,10 +6,15 @@
 libpath=WEB-INF/lib
 classes=WEB-INF/classes
 SHELL:=/bin/bash
+img=test
+path=/opt/tomcat/webapps/nlp
 
 
-init: WEB-INF/classes/service
-	@echo "makefile needs your attention"
+runserver: build
+	catalina.sh run
+
+build: WEB-INF/classes/service
+	echo "build success"
 
 segmenter:
 	wget http://nlp.stanford.edu/software/stanford-segmenter-2015-12-09.zip
@@ -59,5 +64,11 @@ WEB-INF/lib/%.jar:
 	wget http://nlp.stanford.edu/software/$*.jar -P WEB-INF/lib
 
 
-build: init
-	jar cf nlp.war *
+
+init: 
+	docker run -v `pwd`:${path} -it --rm -w ${path} ${img} make build
+
+run: 
+	docker run -v `pwd`:${path} -it --rm -p 8888:8080 -w ${path} ${img} make runserver
+
+
