@@ -1,13 +1,10 @@
-FROM java:8
+FROM dordoka/tomcat
 
-ADD . /work
-WORKDIR /work
 
-RUN ./install.sh
+RUN apt-get update && apt-get install make wget  -y
 
-EXPOSE 9996
-EXPOSE 9997
-EXPOSE 9998
-EXPOSE 9999
+ADD tomcat-users.xml /opt/tomcat/conf/tomcat-users.xml
+ADD . /opt/tomcat/webapps/nlp
 
-CMD ./run.sh
+workdir /opt/tomcat/webapps/nlp
+run make build

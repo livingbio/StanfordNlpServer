@@ -19,7 +19,7 @@ import java.util.List;
 @WebService(endpointInterface = "service.impl.NerService")
 public class NerServiceImpl implements NerService {
 
-	private String en_model_fn = "classifiers/english.muc.7class.distsim.crf.ser.gz";
+	private String en_model_fn = "/opt/tomcat/webapps/nlp/classifiers/english.muc.7class.distsim.crf.ser.gz";
 	private String zh_model_fn = "edu/stanford/nlp/models/ner/chinese.misc.distsim.crf.ser.gz";
 	private AbstractSequenceClassifier<CoreLabel> en_ner = null;
 	private AbstractSequenceClassifier<CoreLabel> zh_ner = null;

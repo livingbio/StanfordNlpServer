@@ -2,6 +2,7 @@
 from suds.client import Client
 import re
 
+
 def to_half_word(text):
     '''Stanford POS tagger會自動將英文及數字轉換成全形字元
     ，這個函式用來將全形字元轉換成半形'''
@@ -9,9 +10,9 @@ def to_half_word(text):
                     if ord(ch) >= 0xff01 and ord(ch) <= 0xff5e else ch
                     for ch in text])
 
-segClient = Client('http://localhost:9999/seg?wsdl')
-posClient = Client('http://localhost:9998/pos?wsdl')
-parClient = Client('http://localhost:9997/parser?wsdl')
+segClient = Client('http://localhost:8888/seg?wsdl')
+posClient = Client('http://localhost:8888/pos?wsdl')
+parClient = Client('http://localhost:8888/parser?wsdl')
 
 text = u'''希拉里关注的是美国人的薪资。
 她想要把最低时薪从7.25美元上调至至少12美元，但这只会影响到一小部分工人。
