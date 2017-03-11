@@ -1,4 +1,4 @@
-FROM gliacloud/tomcat
+FROM gliacloud/base_images:tomcat
 
 
 RUN apt-get update && apt-get install make wget  -y
