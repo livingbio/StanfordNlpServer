@@ -1,4 +1,4 @@
-FROM dordoka/tomcat
+FROM gliacloud/tomcat
 
 
 RUN apt-get update && apt-get install make wget  -y
