@@ -69,6 +69,6 @@ init:
 	docker run -v `pwd`:${path} -it --rm -w ${path} ${img} make build
 
 run: 
-	docker run -v `pwd`:${path} -it --rm -p 8888:8080 -w ${path} ${img} make runserver
+	docker run -v `pwd`:${path} -it --rm -p 8080:8080 -w ${path} ${img} make runserver
 
 
