@@ -13,7 +13,7 @@ node("small"){
             docker.withRegistry("https://${ECR_DOMAIN}", "${ECR_KEY}") {
                 def RELEASE_VERSION = (GIT_COMMENT =~ /release-(v[\d.]+)/)[0][1]
                 sh 'docker tag ${ECR_DOMAIN}/stanford ${ECR_DOMAIN}/stanford:' + RELEASE_VERSION
-                sh 'docker push ${ECR_DOMAIN}/${ECR_PROJECT}:word2vec_' + RELEASE_VERSION
+                sh 'docker push ${ECR_DOMAIN}/stanford:' + RELEASE_VERSION
             }
         }
     }
