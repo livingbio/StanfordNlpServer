@@ -57,7 +57,8 @@ WEB-INF/classes/service: segmenter postagger parser ner src/*.java \
 	WEB-INF/lib/stanford-spanish-corenlp-2015-10-14-models.jar \
 	WEB-INF/lib/stanford-german-2015-10-14-models.jar \
 	WEB-INF/lib/stanford-spanish-corenlp-2015-10-14-models.jar \
-	WEB-INF/lib/stanford-chinese-corenlp-2015-12-08-models.jar 
+	WEB-INF/lib/stanford-chinese-corenlp-2015-12-08-models.jar \
+	src/*.java
 	javac -cp ${libpath}/*:. -d ${classes} src/*.java
 
 WEB-INF/lib/%.jar:

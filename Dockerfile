@@ -10,4 +10,4 @@ ADD . /opt/tomcat/webapps/nlp
 workdir /opt/tomcat/webapps/nlp
 run make build
 EXPOSE 8080
-cmd make runserver
+cmd catalina.sh run

@@ -35,10 +35,10 @@ public class PosServiceImpl implements PosService {
 		for (String sent : sentences) {
 			String tagged_sent = tagger.tagTokenizedString(sent.trim());
 			tagged.add(tagged_sent);
-			System.out.println(sent);
-			System.out.println("----------");
+			// System.out.println(sent);
+			// System.out.println("----------");
 			System.out.println(tagged_sent);
-			System.out.println("=====================");
+			// System.out.println("=====================");
 		}
 		return String.join("$$$", tagged);
 	}

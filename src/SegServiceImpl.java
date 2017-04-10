@@ -38,10 +38,10 @@ public class SegServiceImpl implements SegService {
 		if (segmenter == null) {
 			init();
 		}
-		System.out.println(text);
+		// System.out.println(text);
 		List<String> segmented = segmenter.segmentString(text);
-		System.out.println(segmented);
-		System.out.println(String.join(" ", segmented));
+		// System.out.println(segmented);
+		// System.out.println(String.join(" ", segmented));
 		return String.join(" ", segmented);
 	}
 
