@@ -1,4 +1,4 @@
-FROM gliacloud/base_images:tomcat
+FROM asia.gcr.io/living-bio/base_images:python
 
 
 RUN apt-get update && apt-get install make wget  -y
